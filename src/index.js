@@ -1,23 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
-const users = require('../database/mockdb').users;
-
-const typeDefs = gql`    
-    type User {
-        name: String!
-        email: String!
-        projects: [Project!]!
-    }
-    
-    type Project {
-        title: String!
-        active: Boolean
-        users: [User!]!
-    }
-
-    type Query {
-        users: [User!]!
-    }
-`;
+const users = require('../database/mockdb').users();
+const typeDefs = require('./graphql/schema').typeDefs();
 
 const resolvers = {
     Query: {

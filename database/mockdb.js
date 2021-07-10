@@ -13,4 +13,4 @@ const users = () => {
     ];
 };
 
-exports.users = users();
+exports.users = users;
