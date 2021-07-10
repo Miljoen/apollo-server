@@ -22,6 +22,7 @@ const typeDefs = gql`
     
     type Project {
         title: String!
+        active: Boolean
         users: [User!]!
     }
 
