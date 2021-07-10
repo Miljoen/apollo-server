@@ -1,17 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server');
-
-const users = [
-    {
-        name: 'Yoeri Moens',
-        email: 'test@gmail.com',
-        projects: [{title: 'Site upgrade'}]
-    },
-    {
-        name: 'John Doe',
-        email: 'john@gmail.com',
-        projects: [{title: 'Site upgrade'}]
-    },
-];
+const users = require('../database/mockdb').users;
 
 const typeDefs = gql`    
     type User {
