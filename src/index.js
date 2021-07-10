@@ -1,12 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
-const users = require('../database/mockdb').users();
 const typeDefs = require('./graphql/schema').typeDefs();
-
-const resolvers = {
-    Query: {
-        users: () => users,
-    },
-};
+const resolvers = require('./graphql/resolvers').resolvers();
 
 const server = new ApolloServer({typeDefs, resolvers});
 
