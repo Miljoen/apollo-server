@@ -1,9 +1,9 @@
 const { ApolloServer, gql } = require('apollo-server');
-const typeDefs = require('./graphql/schema').typeDefs();
-const resolvers = require('./graphql/resolvers').resolvers();
+import { typeDefs } from './graphql/schema';
+import { resolvers } from './graphql/resolvers';
 
 const server = new ApolloServer({typeDefs, resolvers});
 
-server.listen().then(({url}) => {
+server.listen().then(({url}:{url: string}) => {
     console.log(`Server at ${url}`)
 });
