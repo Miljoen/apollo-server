@@ -2,29 +2,37 @@ const { ApolloServer, gql } = require('apollo-server');
 
 const users = [
     {
-        title: 'The Awakening',
-        author: 'Kate Chopin',
+        name: 'Yoeri Moens',
+        email: 'test@gmail.com',
+        projects: [{title: 'Site upgrade'}]
     },
     {
-        title: 'City of Glass',
-        author: 'Paul Auster',
+        name: 'John Doe',
+        email: 'john@gmail.com',
+        projects: [{title: 'Site upgrade'}]
     },
 ];
 
 const typeDefs = gql`    
-    type Book {
-        title: String
-        author: String
+    type User {
+        name: String!
+        email: String!
+        projects: [Project!]!
+    }
+    
+    type Project {
+        title: String!
+        users: [User!]!
     }
 
     type Query {
-        books: [Book]
+        users: [User!]!
     }
 `;
 
 const resolvers = {
     Query: {
-        books: () => books,
+        users: () => users,
     },
 };
 
